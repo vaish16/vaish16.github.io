@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <meta name="description" content="Portfolio website for Your Name: bio, resume, and projects." />
+  <meta property="og:title" content="Your Name — Portfolio" />
+  <meta property="og:description" content="Bio, resume, and projects by Your Name." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/your-photo.jpg" />
+  <meta name="theme-color" content="#0f172a" />
+  <style>
+    :root{
+      --bg: #0b1220; /* slate-950-ish */
+      --panel: #0f172a; /* slate-900 */
+      --text: #e5e7eb; /* gray-200 */
+      --muted: #94a3b8; /* slate-400 */
+      --link: #60a5fa; /* blue-400 */
+      --accent: #22d3ee; /* cyan-400 */
+      --card: #111827; /* gray-900 */
+      --border: #1f2937; /* gray-800 */
+      --focus: #f59e0b; /* amber-500 */
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f9fafb;
+        --panel: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --link: #2563eb;
+        --accent: #0891b2;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --focus: #b45309;
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text); background:linear-gradient(180deg, var(--bg), var(--panel));
+    }
+    a{ color: var(--link); text-decoration: none }
+    a:hover{ text-decoration: underline }
+    .container{ max-width: 1000px; margin: 0 auto; padding: 20px }
+    header{ position: sticky; top:0; backdrop-filter: saturate(140%) blur(6px); background: color-mix(in oklab, var(--panel) 80%, transparent); border-bottom:1px solid var(--border); z-index:50 }
+    nav{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding: 10px 20px }
+    nav .brand{ font-weight:700; letter-spacing:.3px }
+    nav ul{ display:flex; gap:16px; list-style:none; padding:0; margin:0 }
+    nav a{ padding:8px 10px; border-radius:10px }
+    nav a:focus-visible, button:focus-visible, .btn:focus-visible{ outline:3px dashed var(--focus); outline-offset:3px }
+    .skip-link{ position:absolute; left:-9999px}
+    .skip-link:focus{ left:12px; top:12px; background:var(--card); color:var(--text); padding:10px 14px; border-radius:10px; z-index:1000 }
+
+    .hero{ display:grid; grid-template-columns: 160px 1fr; gap:24px; align-items:center; padding: 42px 20px }
+    .hero img{ width:160px; height:160px; object-fit:cover; border-radius:20px; border:1px solid var(--border) }
+    .hero h1{ margin:0 0 6px; font-size: clamp(26px, 4vw, 40px) }
+    .hero p{ margin:0; color:var(--muted) }
+    .btn{ display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid var(--border); background:var(--card); color:var(--text); text-decoration:none }
+    .btn:hover{ transform: translateY(-1px) }
+
+    section{ padding: 20px; margin: 10px 0 }
+    h2{ font-size: clamp(20px, 3vw, 28px); margin: 0 0 10px }
+    .grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:16px }
+    .card{ border:1px solid var(--border); background:var(--card); border-radius:16px; padding:16px }
+    .card h3{ margin-top:0; font-size:18px }
+    .tag{ display:inline-block; font-size:12px; padding:2px 8px; border:1px solid var(--border); border-radius:999px; margin-right:6px }
+
+    footer{ border-top:1px solid var(--border); margin-top:40px }
+    .foot{ display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between; padding: 30px 20px; color:var(--muted) }
+
+    @media (max-width: 640px){
+      .hero{ grid-template-columns: 1fr; text-align:center }
+      .hero img{ margin: 0 auto }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header role="banner">
+    <nav aria-label="Primary">
+      <div class="brand">Your Name</div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="container">
+      <section class="hero" aria-labelledby="intro-title">
+        <img src="your-photo.jpg" alt="Portrait of Your Name" />
+        <div>
+          <h1 id="intro-title">Hi, I'm Your Name</h1>
+          <p>Short bio: what you do, what you like, what you're looking for. Keep it ~2 sentences for a quick intro.
+          </p>
+          <p style="margin-top:12px">
+            <a class="btn" href="#projects">View projects</a>
+            <a class="btn" href="resume.pdf" id="resume" download>Download résumé</a>
+          </p>
+        </div>
+      </section>
+
+      <section id="about" aria-labelledby="about-title">
+        <h2 id="about-title">About</h2>
+        <div class="card">
+          <p>Write a slightly longer bio (3–5 sentences). Mention your current role or studies, your focus areas, and a fun fact. You can add a few <span class="tag" aria-label="Tag: JavaScript">JavaScript</span><span class="tag" aria-label="Tag: Python">Python</span><span class="tag" aria-label="Tag: Accessibility">Accessibility</span> tags.</p>
+        </div>
+      </section>
+
+      <section id="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title">Projects</h2>
+        <div class="grid" role="list">
+          <article class="card" role="listitem">
+            <h3>Project One</h3>
+            <p>A one‑sentence summary of what the project is and why it matters.</p>
+            <p><strong>Stack:</strong> HTML, CSS, JS</p>
+            <p><a href="https://example.com" target="_blank" rel="noopener">Live demo</a> · <a href="https://github.com/you/project-one" target="_blank" rel="noopener">Source</a></p>
+          </article>
+          <article class="card" role="listitem">
+            <h3>Project Two</h3>
+            <p>Another quick description. If it’s a course project or hackathon entry, say so.</p>
+            <p><strong>Stack:</strong> Python, Flask</p>
+            <p><a href="#" target="_blank" rel="noopener">Live demo</a> · <a href="#" target="_blank" rel="noopener">Source</a></p>
+          </article>
+          <article class="card" role="listitem">
+            <h3>Project Three</h3>
+            <p>Highlight impact: users, performance, or what you learned.</p>
+            <p><strong>Stack:</strong> React, Node</p>
+            <p><a href="#" target="_blank" rel="noopener">Live demo</a> · <a href="#" target="_blank" rel="noopener">Source</a></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact</h2>
+        <div class="card">
+          <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+          <p>Elsewhere: <a href="https://www.linkedin.com/in/yourhandle" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/yourhandle" target="_blank" rel="noopener">GitHub</a> · <a href="https://x.com/yourhandle" target="_blank" rel="noopener">X</a></p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="foot container">
+      <span>© <span id="y"></span> Your Name</span>
+      <a href="#" class="btn" aria-label="Back to top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // Simple, accessible extras
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
